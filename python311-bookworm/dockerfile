@@ -1,0 +1,6 @@
+FROM python:3.11-bookworm
+ENV TZ=Asia/Shanghai
+SHELL ["/bin/bash", "-c"]
+WORKDIR /app
+COPY ./init.sh /app
+RUN bash /app/init.sh

@@ -1,0 +1,13 @@
+FROM py311-bookworm
+ENV TZ=Asia/Shanghai
+ENV PORT=8000
+ENV TOKEN="token"
+ENV AESKEY="aeskey"
+ENV CORPID="corpid"
+SHELL ["/bin/bash", "-c"]
+EXPOSE 8000/tcp
+WORKDIR /app
+COPY . /app
+RUN bash /app/init.sh
+CMD ["bash", "run.sh"]
+ENTRYPOINT ["bash", "run.sh"]
