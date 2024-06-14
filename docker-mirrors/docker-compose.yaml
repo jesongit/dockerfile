@@ -1,0 +1,15 @@
+services:
+  ## docker hub
+  dockerhub:
+    container_name: reg-docker-hub
+    image: registry:latest
+    restart: always
+    volumes:
+      - /root/mirrors/docker-hub.yml:/etc/docker/registry/config.yml
+    ports:
+      - 50001:5000
+    networks:
+      - registry-net
+
+networks:
+  registry-net:
